@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
+// On Vercel: no basePath (served at root)
+// On our VM: basePath=/billbachat (served under /billbachat/ prefix)
+const isVercel = process.env.VERCEL === "1";
+
 const nextConfig: NextConfig = {
-  basePath: "/billbachat",
-  assetPrefix: "/billbachat",
+  ...(isVercel ? {} : { basePath: "/billbachat", assetPrefix: "/billbachat" }),
   trailingSlash: true,
 };
 
