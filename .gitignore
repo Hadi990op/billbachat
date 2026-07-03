@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+.next/
+
+# Auth/sensitive
+baileys_auth_info/
+.gh-token
+*.env
+.env*
+
+# User data (contains phone numbers)
+users.json
+subscribers.json
+
+# Build artifacts
+*.log
+.local/

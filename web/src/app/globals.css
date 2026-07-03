@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+:root {
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta);
+  --color-brand: #0d9f6e;
+  --color-brand-dark: #064e3b;
+  --color-brand-light: #d1fae5;
+  --color-danger: #dc2626;
+  --color-danger-light: #fee2e2;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fef3c7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-jakarta);
+}
+
+/* Custom animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(13, 159, 110, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(13, 159, 110, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 159, 110, 0);
+  }
+}
+
+@keyframes billJump {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.6s ease-out both;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.2s ease-out both;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
+
+.animate-bill-jump {
+  animation: billJump 0.3s ease;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #0d9f6e 0%, #064e3b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* WhatsApp chat bubble */
+.whatsapp-bubble {
+  background: #dcf8c6;
+  border-radius: 0 12px 12px 12px;
+  position: relative;
+}
+
+.whatsapp-bubble::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 8px solid #dcf8c6;
+  border-left: 8px solid transparent;
+}
